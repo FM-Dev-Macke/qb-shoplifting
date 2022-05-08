@@ -97,7 +97,7 @@ AddEventHandler('qb-shoplifting:client:doStuff', function(coords)
 
         end
         Wait(7000)
-        itemToGive = Config.RewardItems[math.random(1, #Config.RewardItems)]
+        itemToGive = Config.items[math.random(1, #Config.items)]
         TriggerServerEvent('qb-shoplifting:server:RewardItem', itemToGive.item)
         QBCore.Functions.Notify('You Stole ' .. itemToGive.label .. '!', 'success', 5000)
     else
