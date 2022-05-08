@@ -70,12 +70,16 @@ AddEventHandler('qb-shoplifting:client:doStuff', function(coords)
     local armIndex = GetPedDrawableVariation(PlayerPedId(), 1)
     local alertData = {
         title = "10-33 | Shoplifter",
-        coords = coords,
+        coords = {
+            x = pos.x,
+            y = pos.y,
+            z = pos.z
+        },
         description = "Someone Is Trying To Shoplift At "..streetLabel.." He Was Wearing A ".. Config.Masks[armIndex].. " He Was Wearing A "..Config.Vests[armIndex],
     }
 
     if GlobalTimer == 0 then
-           TriggerServerEvent('qb-shoplifting:server:sendAlert', alertData, streetLabel, coords)
+           TriggerServerEvent('qb-shoplifting:server:sendAlert', alertData)
 
         QBCore.Functions.Progressbar('shopliftbar', 'Shoplifting...', 7000, false, false, {
             disableMovement = true,
@@ -119,12 +123,16 @@ RegisterNetEvent('qb-shoplifting:client:shopLiftAcohol', function(coords)
     local armIndex = GetPedDrawableVariation(PlayerPedId(), 1)
     local alertData = {
         title = "10-33 | Alcohol Shoplifter",
-        coords = coords,
+        coords = {
+            x = pos.x,
+            y = pos.y,
+            z = pos.z
+        },
         description = "Someone Is Trying To Shoplift At "..streetLabel.." He Was Wearing A ".. Config.Masks[armIndex].. " He Was Wearing A "..Config.Vests[armIndex],
     }
 
     if GlobalTimer == 0 then
-           TriggerServerEvent('qb-shoplifting:server:sendAlert', alertData, streetLabel, coords)
+           TriggerServerEvent('qb-shoplifting:server:sendAlert', alertData)
 
         QBCore.Functions.Progressbar('shopliftbar', 'Shoplifting...', 7000, false, false, {
             disableMovement = true,
