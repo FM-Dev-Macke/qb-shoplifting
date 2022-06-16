@@ -68,11 +68,6 @@ AddEventHandler('qb-shoplifting:client:doStuff', function(coords)
     end
     local ped = PlayerPedId()
     local armIndex = GetPedDrawableVariation(PlayerPedId(), 1)
-    local alertData = {
-        title = "10-33 | Shoplifter",
-        coords = coords,
-        description = "Someone Is Trying To Shoplift At "..streetLabel.." He Was Wearing A ".. Config.Masks[armIndex].. " He Was Wearing A "..Config.Vests[armIndex],
-    }
 
     if GlobalTimer == 0 then
            TriggerServerEvent('qb-shoplifting:server:sendAlert', alertData, streetLabel, coords)
